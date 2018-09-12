@@ -30,7 +30,9 @@ chown -R weblogic:web /data
 echo "" > /home/weblogic/startMemcached.log
 
 echo "start to startMemcached"
+
 nohup /opt/memcached-1.5.2/memcached/bin/memcached -d -vvv -u nobody -P /tmp/memcached.pid >> /home/weblogic/startMemcached.log &
+
 echo "success to startMemcached"
 
 su - weblogic -c "/share/sh/sub/./startWeblogicSub.sh"
@@ -47,7 +49,9 @@ cat /home/weblogic/startWeblogic.log >> /data/log/"$filename".log
 echo "" > startWeblogic.log
 
 echo "start to startWeblogic"
+
 nohup /opt/weblogic/app/herysoft_projects/domains/domain1/bin/startWebLogic.sh >> startWeblogic.log &
+
 echo "success to startWeblogic"
 
 
@@ -82,7 +86,9 @@ chown -R weblogic:web /data
 echo "" > /home/weblogic/startMemcached.log
 
 echo "start to stopMemcached"
+
 nohup kill `cat /tmp/memcached.pid`>> /home/weblogic/stopMemcached.log
+
 echo "success to stopMemcached"
 
 su - weblogic -c "/share/sh/sub/./stopWeblogicSub.sh"
