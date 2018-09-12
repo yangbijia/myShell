@@ -1,6 +1,7 @@
 # myShell
 (1)
-#启动weblogic，及memcached
+---------------------------------------------------------
+## #启动weblogic，及memcached
 #!/bin/sh
 if [ ! -d "/data/log" ];then
 mkdir /data/log
@@ -34,8 +35,8 @@ echo "success to startMemcached"
 
 su - weblogic -c "/share/sh/sub/./startWeblogicSub.sh"
 exit
----------------------------------------------------------
-startWeblogicSub.sh
+
+## startWeblogicSub.sh
 #!/bin/sh
 echo "you are logining into weblogic user"
 
@@ -51,7 +52,8 @@ echo "success to startWeblogic"
 
 
 (2)
-#关闭weblogic，及memcached
+---------------------------------------------------------
+## #关闭weblogic，及memcached
 #!/bin/sh
 if [ ! -d "/data/log" ];then
 mkdir /data/log
@@ -88,8 +90,8 @@ su - weblogic -c "/share/sh/sub/./stopWeblogicSub.sh"
 kill -9 `ps -ef|grep weblogic|awk '{print $2}'`
 
 exit
------------------------------------------------------------
-stopWeblogicSub.sh
+
+## stopWeblogicSub.sh
 #!/bin/sh
 echo "you are logining into weblogic user"
 
